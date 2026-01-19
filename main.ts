@@ -489,7 +489,7 @@ function setup_BotAndController_Fn () {
         scoreboard_ColumnBackend_FieldNames_ArrayListOfText[6],
         "0"
         ]
-        scoreboard_BotSingle_ArrayOfText_List_1D = []
+        scoreboard_BotSingle_ArrayOfText_List_1D2 = []
         scoreboard_BotsAll_ArrayListOfText_2D = []
     }
 }
@@ -701,8 +701,7 @@ let network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str = ""
 let network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str = ""
 let network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList: string[] = []
 let network_DataPacket_Rcvd_Str = ""
-//// jwc 26-0119-0700 \/ let scoreboard_BotSingle_ArrayOfText_List_1D: number[] = []
-let scoreboard_BotSingle_ArrayOfText_List_1D: string[] = []
+let scoreboard_BotSingle_ArrayOfText_List_1D2: number[] = []
 let scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D: string[] = []
 let scoreboard_ColumnBackend_FieldNames_ArrayListOfText: string[] = []
 let scoreboard_ColumnFrontend_TitleNames_ArrayListOfText: string[] = []
@@ -919,7 +918,7 @@ basic.forever(function () {
             scoreboard_ColumnBackend_FieldNames_ArrayListOfText[4],
             "0"
             ]
-            scoreboard_BotSingle_ArrayOfText_List_1D = []
+            scoreboard_BotSingle_ArrayOfText_List_1D2 = []
             scoreboard_BotsAll_ArrayListOfText_2D = []
         }
     }
