@@ -554,9 +554,19 @@ function network_Rx_Processing_Func (receivedString: string) {
             if (true) {
                 scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D = []
                 if (true) {
-                    for (let index = 0; index < 14; index++) {
+                    for (let index = 0; index < 8; index++) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "/\\ 8 Slots"
+                        )
                         scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D.push("")
                     }
+                }
+                if (true) {
+                    quest_Note_1.quest_Show_String_For_Note_Big_Func(
+                    "Write in the Header Components"
+                    )
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[0] = network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[1] = network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str
                 }
                 for (let network_datapacket_rcvd_a_keyvaluepair of network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList) {
                     quest_Note_1.quest_Show_String_For_Note_Big_Func(
@@ -566,9 +576,7 @@ function network_Rx_Processing_Func (receivedString: string) {
                     quest_Note_1.quest_Show_String_For_Note_Small_Func(
                     "Blank last argument (<< NOT SEEM TO WORK) -or- Use current string_length (which is more than enough) to insure read to 'end_of_string'"
                     )
-                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[0] = keyvaluepair_key
                     keyvaluepair_value = network_datapacket_rcvd_a_keyvaluepair.substr(network_datapacket_rcvd_a_keyvaluepair.indexOf(":") + 1, network_datapacket_rcvd_a_keyvaluepair.length)
-                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[1] = keyvaluepair_value
                     quest_Note_1.quest_Show_String_For_Note_Big_Func(
                     "Write in the Body Components"
                     )
@@ -625,7 +633,7 @@ function network_Rx_Processing_Func (receivedString: string) {
             if (_debug_Show_Priority_Hi_Bool) {
                 serial.writeString("* D2>")
                 for (let scoreboard_botsingle_columndata_1d4 of scoreboard_BotsAll_ArrayListOfText_2D[scoreboard_BotsAll_ArrayListOfText_2D.length - 1]) {
-                    serial.writeString("" + "|")
+                    serial.writeString("" + scoreboard_botsingle_columndata_1d4 + "|")
                 }
                 serial.writeLine("* D2<")
             }
@@ -676,8 +684,9 @@ radio.onReceivedString(function (receivedString) {
 input.onButtonPressed(Button.B, function () {
     if (false) {
         network_DataPacket_Rcvd_Str = "abcde:001,S0R:50"
+        network_DataPacket_Rcvd_Str = "abcde:" + convertToText(randint(100, 199)) + "," + "S0R:" + convertToText(randint(50, 59))
     }
-    network_DataPacket_Rcvd_Str = "abcde:" + convertToText(randint(100, 199)) + "," + "S0R:" + convertToText(randint(50, 59))
+    network_DataPacket_Rcvd_Str = "abcde:001,S0R:50,S1L:51,S2R:52,S3L:53,S6R:56,S7L:57"
     network_Rx_Processing_Func(network_DataPacket_Rcvd_Str)
 })
 function screen_ScrollText_Fn (text_Str_In: string) {
