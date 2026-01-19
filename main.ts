@@ -1,9 +1,3 @@
-/**
- * // jwc 26-0118-1820 n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
- */
-/**
- * // jwc n 26-0118-2300 \/ let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
- */
 // Very-Key Notes:
 // 
 // ----- ----- ----- ----- ----- ----- ----- -----
@@ -266,6 +260,12 @@ input.onButtonPressed(Button.A, function () {
     }
     screen_ModeStatus_Fn()
 })
+/**
+ * // jwc 26-0118-1820 n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
+ */
+/**
+ * // jwc n 26-0118-2300 \/ let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
+ */
 // * General Notes
 // 
 // * 2019-0519-0340
@@ -488,7 +488,7 @@ function doGroupChannelShow_Func () {
 function network_Rx_Processing_Func (receivedString: string) {
     if (!(scoreboard_BotsAll_ArrayList_2D_StopFreeze_Bool)) {
         network_DataPacket_Rcvd_Str = receivedString
-        if (_debug_Show_Priority_Hi_Bool) {
+        if (_debug_Show_Priority_Lo_Bool) {
             serial.writeString("* A: Raw String: ")
             serial.writeLine("\"" + network_DataPacket_Rcvd_Str + "\"")
         }
@@ -500,7 +500,7 @@ function network_Rx_Processing_Func (receivedString: string) {
             )
             network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[0].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[0].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[0].length)
         }
-        if (true) {
+        if (_debug_Show_Priority_Lo_Bool) {
             quest_Note_4.quest_Show_String_For_Note_Small_Func(
             "\\/ '[Object]' = Json?"
             )
@@ -519,16 +519,17 @@ function network_Rx_Processing_Func (receivedString: string) {
                     serial.writeLine("* B1:" + scoreboard_botsingle_arraylistoftext_1d[0] + "|" + scoreboard_botsingle_arraylistoftext_1d[1] + "||" + network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str + "||" + scoreboard_botsingle_arraylistoftext_1d + "||" + scoreboard_BotsAll_ArrayListOfText_2D)
                 }
                 quest_Note_4.quest_Show_String_For_Note_Small_Func(
-                "Hardcode 'Index = 1' to access actual 'BotId'"
+                "Hardcode 'Index = 0' to access actual 'BotId'"
                 )
                 quest_Note_1.quest_Show_String_For_Note_Small_Func(
                 "\\/ Compare w Key(SerialId) vs Value(GrouopCh#) for True BotId"
                 )
-                if (scoreboard_botsingle_arraylistoftext_1d[1] == network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str) {
+                if (scoreboard_botsingle_arraylistoftext_1d[0] == network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str) {
                     quest_Note_1.quest_Show_String_For_Note_Big_Func(
                     "/\\ If Existing, Then Print Old Row"
                     )
                     scoreboard_Bot_Found_Bool = true
+                    doScoreboard_BotSingle_ArrayListOfText_Fill_Fn()
                     if (_debug_Show_Priority_Hi_Bool) {
                         serial.writeString("* C1>")
                         for (let scoreboard_botsingle_columndata_1d of scoreboard_botsingle_arraylistoftext_1d) {
@@ -536,7 +537,7 @@ function network_Rx_Processing_Func (receivedString: string) {
                         }
                         serial.writeLine("* C1<")
                     }
-                    if (true) {
+                    if (false) {
                         quest_Note_1.quest_Show_String_For_Note_Small_Func(
                         "Then Set New Values: L,R"
                         )
@@ -566,59 +567,7 @@ function network_Rx_Processing_Func (receivedString: string) {
                     )
                     scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[0] = network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str
                     scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[1] = network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str
-                }
-                for (let network_datapacket_rcvd_a_keyvaluepair of network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList) {
-                    quest_Note_1.quest_Show_String_For_Note_Big_Func(
-                    "Write in the Header Components"
-                    )
-                    keyvaluepair_key = network_datapacket_rcvd_a_keyvaluepair.substr(0, network_datapacket_rcvd_a_keyvaluepair.indexOf(":"))
-                    quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                    "Blank last argument (<< NOT SEEM TO WORK) -or- Use current string_length (which is more than enough) to insure read to 'end_of_string'"
-                    )
-                    keyvaluepair_value = network_datapacket_rcvd_a_keyvaluepair.substr(network_datapacket_rcvd_a_keyvaluepair.indexOf(":") + 1, network_datapacket_rcvd_a_keyvaluepair.length)
-                    quest_Note_1.quest_Show_String_For_Note_Big_Func(
-                    "Write in the Body Components"
-                    )
-                    if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[2]) {
-                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                        "2:S1L"
-                        )
-                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[2] = keyvaluepair_value
-                    } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[3]) {
-                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                        "3:S0R"
-                        )
-                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[3] = keyvaluepair_value
-                    } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[4]) {
-                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                        "4:S3L"
-                        )
-                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[4] = keyvaluepair_value
-                    } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[5]) {
-                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                        "5:S2L"
-                        )
-                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[5] = keyvaluepair_value
-                    } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[6]) {
-                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                        "6:S7L"
-                        )
-                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[6] = keyvaluepair_value
-                    } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[7]) {
-                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                        "7:S6L"
-                        )
-                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[7] = keyvaluepair_value
-                    } else {
-                        if (false) {
-                            serial.writeLine("*** ERROR: 2023-0517-1450: 'keyvaluepair_key' Not Recognized ***")
-                        } else {
-                            quest_Note_4.quest_Show_String_For_Note_Small_Func(
-                            "Tolerated Error for Digital-Xay: Fix Later"
-                            )
-                            serial.writeString("* Key?: ")
-                        }
-                    }
+                    doScoreboard_BotSingle_ArrayListOfText_Fill_Fn()
                 }
                 if (_debug_Show_Priority_Hi_Bool) {
                     serial.writeString("* D1>")
@@ -629,7 +578,7 @@ function network_Rx_Processing_Func (receivedString: string) {
                 }
             }
             scoreboard_BotsAll_ArrayListOfText_2D.push(scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D)
-            if (_debug_Show_Priority_Hi_Bool) {
+            if (_debug_Show_Priority_Lo_Bool) {
                 serial.writeString("* D2>")
                 for (let scoreboard_botsingle_columndata_1d4 of scoreboard_BotsAll_ArrayListOfText_2D[scoreboard_BotsAll_ArrayListOfText_2D.length - 1]) {
                     serial.writeString("" + scoreboard_botsingle_columndata_1d4 + "|")
@@ -717,6 +666,63 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
         scoreboard_BotsAll_ArrayList_2D_StopFreeze_Bool = true
     }
 })
+function doScoreboard_BotSingle_ArrayListOfText_Fill_Fn () {
+    for (let network_datapacket_rcvd_a_keyvaluepair of network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList) {
+        quest_Note_1.quest_Show_String_For_Note_Big_Func(
+        "Write in the Header Components"
+        )
+        keyvaluepair_key = network_datapacket_rcvd_a_keyvaluepair.substr(0, network_datapacket_rcvd_a_keyvaluepair.indexOf(":"))
+        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+        "Blank last argument (<< NOT SEEM TO WORK) -or- Use current string_length (which is more than enough) to insure read to 'end_of_string'"
+        )
+        keyvaluepair_value = network_datapacket_rcvd_a_keyvaluepair.substr(network_datapacket_rcvd_a_keyvaluepair.indexOf(":") + 1, network_datapacket_rcvd_a_keyvaluepair.length)
+        quest_Note_1.quest_Show_String_For_Note_Big_Func(
+        "Write in the Body Components"
+        )
+        if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[2]) {
+            quest_Note_1.quest_Show_String_For_Note_Small_Func(
+            "2:S1L"
+            )
+            scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[2] = keyvaluepair_value
+        } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[3]) {
+            quest_Note_1.quest_Show_String_For_Note_Small_Func(
+            "3:S0R"
+            )
+            scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[3] = keyvaluepair_value
+        } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[4]) {
+            quest_Note_1.quest_Show_String_For_Note_Small_Func(
+            "4:S3L"
+            )
+            scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[4] = keyvaluepair_value
+        } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[5]) {
+            quest_Note_1.quest_Show_String_For_Note_Small_Func(
+            "5:S2L"
+            )
+            scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[5] = keyvaluepair_value
+        } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[6]) {
+            quest_Note_1.quest_Show_String_For_Note_Small_Func(
+            "6:S7L"
+            )
+            scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[6] = keyvaluepair_value
+        } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[7]) {
+            quest_Note_1.quest_Show_String_For_Note_Small_Func(
+            "7:S6L"
+            )
+            scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[7] = keyvaluepair_value
+        } else {
+            if (false) {
+                if (false) {
+                    serial.writeLine("*** ERROR: 2023-0517-1450: 'keyvaluepair_key' Not Recognized ***")
+                } else {
+                    quest_Note_4.quest_Show_String_For_Note_Small_Func(
+                    "Tolerated Error for Digital-Xay: Fix Later"
+                    )
+                    serial.writeString("* Key?: ")
+                }
+            }
+        }
+    }
+}
 function screen_ModeStatus_Fn () {
     if (scoreboard_Server_SerialPrint_RawScores_Bool) {
         if (true) {
@@ -750,9 +756,9 @@ function doGroupChannel_Show_PerDigit_Func (singleDigit_In: number, OffsetX_In: 
         led.plotBrightness(Math.idiv(index222, 5) + OffsetX_In, index222 % 5 + OffsetY_In, screenBrightness_MI_INT)
     }
 }
-let parsed_Substrings_As_Array: string[] = []
 let keyvaluepair_value = ""
 let keyvaluepair_key = ""
+let parsed_Substrings_As_Array: string[] = []
 let scoreboard_Bot_Found_Bool = false
 let network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str = ""
 let network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str = ""
@@ -785,6 +791,7 @@ let network_GroupChannel_MyBotAndController_Digit_Hundreds_Int = 0
 let network_GroupChannel_MyBotAndController_BASE0_MIN_INT = 0
 let network_GroupChannel_MyBotAndController_BASE0_MAX_INT = 0
 let screenBrightness_Hi_DEFAULT_INT = 0
+let _debug_Show_Priority_Lo_Bool = false
 let _debug_Show_Priority_Hi_Bool = false
 let scoreboard_Server_SerialPrint_RawScores_Bool = false
 let scoreboard_Server_SerialPrint_FormattedScores_Bool = false
@@ -824,6 +831,7 @@ if (true) {
     "'Debug On' for Testing"
     )
     _debug_Show_Priority_Hi_Bool = true
+    _debug_Show_Priority_Lo_Bool = false
 }
 loops.everyInterval(2000, function () {
     quest_Note_3.quest_Show_String_For_Note_Big_Func(
