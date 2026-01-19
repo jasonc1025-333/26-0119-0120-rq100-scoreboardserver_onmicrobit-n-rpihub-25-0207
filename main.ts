@@ -991,7 +991,7 @@ basic.forever(function () {
 })
 basic.forever(function () {
     quest_Note_1.quest_Show_String_For_Note_Small_Func(
-    "v0.2.0"
+    "v0.2.2"
     )
 })
 basic.forever(function () {
