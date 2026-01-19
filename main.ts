@@ -759,7 +759,6 @@ let network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str = ""
 let network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList: string[] = []
 let network_DataPacket_Rcvd_Str = ""
 let scoreboard_BotsAll_ArrayListOfText_2D: string[][] = []
-//// jwc 26-0119-2330 Obsoilete: let scoreboard_BotSingle_ArrayOfText_List_1D2: number[] = []
 let scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D: string[] = []
 let scoreboard_ColumnBackend_FieldNames_ArrayListOfText: string[] = []
 let scoreboard_ColumnFrontend_TitleNames_ArrayListOfText: string[] = []
@@ -882,40 +881,6 @@ basic.forever(function () {
         quest_Timer.quest_Set_ContinueCurrentState_CountdownTimer_Func(2, quest_Time_Units_Enum.Seconds)
         screen_Show_DiagnosticDashboard_Func()
         _system_BotAndController_Mode_Int = _system_BotAndController_Mode_As_COMMAND_AS_MAIN_MODE_INT
-    }
-})
-basic.forever(function () {
-    if (false) {
-        let scoreboard_botsingle_arraylistoftext_1d2: string[] = []
-        if (false) {
-            if (false) {
-                quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                "L+"
-                )
-                scoreboard_botsingle_arraylistoftext_1d2[3] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].length)
-                quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                "L="
-                )
-                scoreboard_botsingle_arraylistoftext_1d2[5] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d2[3]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d2[5]))
-            }
-            if (false) {
-                quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                "M+"
-                )
-                scoreboard_botsingle_arraylistoftext_1d2[7] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].length)
-                quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                "M="
-                )
-                scoreboard_botsingle_arraylistoftext_1d2[9] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d2[7]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d2[9]))
-            }
-        }
-        if (_debug_Show_Priority_Hi_Bool) {
-            serial.writeString("* C2>")
-            for (let scoreboard_botsingle_columndata_1d2 of scoreboard_botsingle_arraylistoftext_1d2) {
-                serial.writeString("" + scoreboard_botsingle_columndata_1d2 + "|")
-            }
-            serial.writeLine("* C2<")
-        }
     }
 })
 basic.forever(function () {
