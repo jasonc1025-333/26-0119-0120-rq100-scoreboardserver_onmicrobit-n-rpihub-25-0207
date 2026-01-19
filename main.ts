@@ -1,3 +1,12 @@
+/**
+ * // jwc n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
+ */
+/**
+ * // jwc 26-0118-1820 n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
+ */
+/**
+ * // jwc n 26-0118-2300 \/ let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
+ */
 // Very-Key Notes:
 // 
 // ----- ----- ----- ----- ----- ----- ----- -----
@@ -260,12 +269,6 @@ input.onButtonPressed(Button.A, function () {
     }
     screen_ModeStatus_Fn()
 })
-/**
- * // jwc 26-0118-1820 n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
- */
-/**
- * // jwc n 26-0118-2300 \/ let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
- */
 // * General Notes
 // 
 // * 2019-0519-0340
@@ -473,18 +476,13 @@ function doGroupChannelShow_Func () {
         doGroupChannel_Show_PerDigit_Func(network_GroupChannel_MyBotAndController_Digit_Ones_Int, 3, 0)
     }
 }
-/**
- * // jwc n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
- */
-/**
- * jwc IMPORTANT NOTES
- * 
- * jwc 25-0210-1400 * network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["#", "L", "M"]
- * 
- * * network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
- * 
- * * network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText = ["Z", "L", "R"]
- */
+// jwc IMPORTANT NOTES
+// 
+// jwc 25-0210-1400 * network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["#", "L", "M"]
+// 
+// * network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
+// 
+// * network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText = ["Z", "L", "R"]
 function network_Rx_Processing_Func (receivedString: string) {
     if (!(scoreboard_BotsAll_ArrayList_2D_StopFreeze_Bool)) {
         network_DataPacket_Rcvd_Str = receivedString
@@ -614,8 +612,8 @@ input.onButtonPressed(Button.AB, function () {
         "Wait for reset to 0 to stabilize/complete"
         )
         basic.clearScreen()
-        for (let index = 0; index <= 2; index++) {
-            basic.showNumber(3 - index)
+        for (let index2 = 0; index2 <= 2; index2++) {
+            basic.showNumber(3 - index2)
             quest_Timer.quest_Set_ContinueCurrentState_CountdownTimer_Func(1, quest_Time_Units_Enum.Seconds)
         }
         basic.clearScreen()
