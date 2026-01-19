@@ -1,6 +1,6 @@
 {
     "name": " 23-0613-1510-rq100-scoreboardserver_onmicrobit-n-rpihub",
-    "version": "0.2.0",
+    "version": "0.1.0",
     "description": "",
     "dependencies": {
         "core": "*",
