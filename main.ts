@@ -489,7 +489,7 @@ function setup_BotAndController_Fn () {
         scoreboard_ColumnBackend_FieldNames_ArrayListOfText[6],
         "0"
         ]
-        scoreboard_BotSingle_ArrayOfText_List_1D2 = []
+        scoreboard_BotSingle_ArrayOfText_List_1D = []
         scoreboard_BotsAll_ArrayListOfText_2D = []
     }
 }
@@ -701,7 +701,8 @@ let network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str = ""
 let network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str = ""
 let network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList: string[] = []
 let network_DataPacket_Rcvd_Str = ""
-let scoreboard_BotSingle_ArrayOfText_List_1D2: number[] = []
+//// jwc 26-0119-0700 \/ let scoreboard_BotSingle_ArrayOfText_List_1D: number[] = []
+let scoreboard_BotSingle_ArrayOfText_List_1D: string[] = []
 let scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D: string[] = []
 let scoreboard_ColumnBackend_FieldNames_ArrayListOfText: string[] = []
 let scoreboard_ColumnFrontend_TitleNames_ArrayListOfText: string[] = []
@@ -721,7 +722,7 @@ let _bool_TRUE_1_ForDigitalPinReadWriteOnly_INT = 0
 let _bool_FALSE_0_ForDigitalPinReadWriteOnly_INT = 0
 let _system_BotAndController_Mode_As_COMMAND_AS_MAIN_MODE_INT = 0
 let _system_BotAndController_Mode_As_SETUP_INT = 0
-let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
+let scoreboard_BotsAll_ArrayListOfText_2D: string[][] = []
 let network_HiMessage_Frequency_SEC_INT = 0
 let network_GroupChannel_MyBotAndController_Digit_Ones_Int = 0
 let network_GroupChannel_MyBotAndController_Digit_Tens_Int = 0
@@ -836,32 +837,32 @@ basic.forever(function () {
 })
 basic.forever(function () {
     if (false) {
-        let scoreboard_botsingle_arraylistoftext_1d2: string[] = []
+        let scoreboard_botsingle_arraylistoftext_1d: string[] = []
         if (false) {
             if (false) {
                 quest_Note_1.quest_Show_String_For_Note_Small_Func(
                 "L+"
                 )
-                scoreboard_botsingle_arraylistoftext_1d2[3] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].length)
+                scoreboard_botsingle_arraylistoftext_1d[3] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].length)
                 quest_Note_1.quest_Show_String_For_Note_Small_Func(
                 "L="
                 )
-                scoreboard_botsingle_arraylistoftext_1d2[5] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d2[3]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d2[5]))
+                scoreboard_botsingle_arraylistoftext_1d[5] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d[3]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d[5]))
             }
             if (false) {
                 quest_Note_1.quest_Show_String_For_Note_Small_Func(
                 "M+"
                 )
-                scoreboard_botsingle_arraylistoftext_1d2[7] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].length)
+                scoreboard_botsingle_arraylistoftext_1d[7] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].length)
                 quest_Note_1.quest_Show_String_For_Note_Small_Func(
                 "M="
                 )
-                scoreboard_botsingle_arraylistoftext_1d2[9] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d2[7]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d2[9]))
+                scoreboard_botsingle_arraylistoftext_1d[9] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d[7]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d[9]))
             }
         }
         if (_debug_Show_Priority_Hi_Bool) {
             serial.writeString("* C2>")
-            for (let scoreboard_botsingle_columndata_1d2 of scoreboard_botsingle_arraylistoftext_1d2) {
+            for (let scoreboard_botsingle_columndata_1d2 of scoreboard_botsingle_arraylistoftext_1d) {
                 serial.writeString("" + scoreboard_botsingle_columndata_1d2 + "|")
             }
             serial.writeLine("* C2<")
@@ -918,7 +919,7 @@ basic.forever(function () {
             scoreboard_ColumnBackend_FieldNames_ArrayListOfText[4],
             "0"
             ]
-            scoreboard_BotSingle_ArrayOfText_List_1D2 = []
+            scoreboard_BotSingle_ArrayOfText_List_1D = []
             scoreboard_BotsAll_ArrayListOfText_2D = []
         }
     }
