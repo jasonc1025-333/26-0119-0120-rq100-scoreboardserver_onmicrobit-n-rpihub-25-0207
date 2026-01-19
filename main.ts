@@ -1,21 +1,3 @@
-/**
- * // jwc n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
- */
-/**
- * jwc IMPORTANT NOTES
- * 
- * jwc 25-0210-1400 * network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["#", "L", "M"]
- * 
- * * network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
- * 
- * * network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText = ["Z", "L", "R"]
- */
-/**
- * // jwc 26-0118-1820 n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
- */
-/**
- * // jwc n 26-0118-2300 \/ let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
- */
 // Very-Key Notes:
 // 
 // ----- ----- ----- ----- ----- ----- ----- -----
@@ -263,47 +245,20 @@ function setup_Network_Fn () {
     }
 }
 input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
-    quest_Note_1.quest_Show_String_For_Note_Small_Func(
-    "23-0508-0740"
-    )
-    if (_debug_Show_Priority_Hi_Bool) {
-        _debug_Show_Priority_Hi_Bool = false
-        basic.clearScreen()
-        led.plot(2, 4)
-        basic.pause(2000)
-    } else {
-        _debug_Show_Priority_Hi_Bool = true
-        basic.clearScreen()
-        led.plot(2, 0)
-        basic.pause(2000)
-    }
+	
 })
 input.onButtonPressed(Button.A, function () {
     quest_Note_3.quest_Show_String_For_Note_Big_Func(
-    "Reset Scores"
+    "Switch Scoreboard Modes"
     )
-    quest_Note_2.quest_Show_String_For_Note_Small_Func(
-    "Reset all non-BotID fields to Zero"
-    )
-    scoreboard_BotsAll_ArrayList_2D_StopFreeze_Bool = true
-    if (true) {
-        for (let scoreboard_BotSingle_ArrayOfText_List_1D of scoreboard_BotsAll_ArrayListOfText_2D) {
-            scoreboard_BotSingle_ArrayOfText_List_1D[3] = "0"
-            scoreboard_BotSingle_ArrayOfText_List_1D[5] = "0"
-            scoreboard_BotSingle_ArrayOfText_List_1D[7] = "0"
-            scoreboard_BotSingle_ArrayOfText_List_1D[9] = "0"
-        }
-        quest_Note_2.quest_Show_String_For_Note_Small_Func(
-        "Wait for reset to 0 to stabilize/complete"
-        )
-        basic.clearScreen()
-        for (let index = 0; index <= 2; index++) {
-            basic.showNumber(3 - index)
-            quest_Timer.quest_Set_ContinueCurrentState_CountdownTimer_Func(1, quest_Time_Units_Enum.Seconds)
-        }
-        basic.clearScreen()
+    if (scoreboard_Server_SerialPrint_RawScores_Bool) {
+        scoreboard_Server_SerialPrint_RawScores_Bool = false
+        scoreboard_Server_SerialPrint_FormattedScores_Bool = true
+    } else {
+        scoreboard_Server_SerialPrint_RawScores_Bool = true
+        scoreboard_Server_SerialPrint_FormattedScores_Bool = false
     }
-    scoreboard_BotsAll_ArrayList_2D_StopFreeze_Bool = false
+    screen_ModeStatus_Fn()
 })
 // * General Notes
 // 
@@ -453,8 +408,16 @@ function setup_BotAndController_Fn () {
     if (true) {
         // // jwc 25-0210-1400 o network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["#", "L", "M"]
         // // jwc y network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
-        network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
-        network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText = ["Z", "L", "R"]
+        network_DataPacket_Rcvd_FieldNames_ArrayListOfText = [
+        "?",
+        "S1L",
+        "S0R",
+        "S3L",
+        "S2R",
+        "S7L",
+        "S6R"
+        ]
+        network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText = ["?", "?", "?"]
         scoreboard_ColumnFrontend_TitleNames_ArrayListOfText = [
         "Bot#",
         "\"Wheel_L\"",
@@ -501,8 +464,50 @@ function doGroupChannelShow_Func () {
     }
 }
 input.onButtonPressed(Button.AB, function () {
-    _codeComment_AsText = "23-0226-1430"
+    quest_Note_3.quest_Show_String_For_Note_Big_Func(
+    "Reset Scores"
+    )
+    quest_Note_2.quest_Show_String_For_Note_Small_Func(
+    "Reset all non-BotID fields to Zero"
+    )
+    scoreboard_BotsAll_ArrayList_2D_StopFreeze_Bool = true
+    if (true) {
+        for (let scoreboard_BotSingle_ArrayOfText_List_1D of scoreboard_BotsAll_ArrayListOfText_2D) {
+            scoreboard_BotSingle_ArrayOfText_List_1D[3] = "0"
+            scoreboard_BotSingle_ArrayOfText_List_1D[5] = "0"
+            scoreboard_BotSingle_ArrayOfText_List_1D[7] = "0"
+            scoreboard_BotSingle_ArrayOfText_List_1D[9] = "0"
+        }
+        quest_Note_2.quest_Show_String_For_Note_Small_Func(
+        "Wait for reset to 0 to stabilize/complete"
+        )
+        basic.clearScreen()
+        for (let index = 0; index <= 2; index++) {
+            basic.showNumber(3 - index)
+            quest_Timer.quest_Set_ContinueCurrentState_CountdownTimer_Func(1, quest_Time_Units_Enum.Seconds)
+        }
+        basic.clearScreen()
+    }
+    scoreboard_BotsAll_ArrayList_2D_StopFreeze_Bool = false
 })
+/**
+ * // jwc n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
+ */
+/**
+ * jwc IMPORTANT NOTES
+ * 
+ * jwc 25-0210-1400 * network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["#", "L", "M"]
+ * 
+ * * network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
+ * 
+ * * network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText = ["Z", "L", "R"]
+ */
+/**
+ * // jwc 26-0118-1820 n let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
+ */
+/**
+ * // jwc n 26-0118-2300 \/ let scoreboard_BotsAll_ArrayListOfText_2D: Array[] = []
+ */
 // To Insure Both at Synchronized States, Both Bot and Controller Must Start/Re-Start at 'setup_and_startup' State (e.g. for Manual Config Overrides, Debug-Serial-Prints, etc. to work)
 // * Important News
 // ** 'receivedstring': 18 char max
@@ -523,15 +528,27 @@ radio.onReceivedString(function (receivedString) {
             network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[0].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[0].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[0].length)
         }
         if (true) {
+            serial.writeLine("* A1 Data_KeyValue:" + network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList + "|Data_Key:" + network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str + "|Data_Value:" + network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str + "|")
+        }
+        if (true) {
+            quest_Note_1.quest_Show_String_For_Note_Big_Func(
+            "\\/ Check if Existing or New BotId"
+            )
             scoreboard_Bot_Found_Bool = false
             for (let scoreboard_botsingle_arraylistoftext_1d of scoreboard_BotsAll_ArrayListOfText_2D) {
                 if (_debug_Show_Priority_Hi_Bool) {
-                    serial.writeLine("* B1:" + scoreboard_botsingle_arraylistoftext_1d[0] + "|" + scoreboard_botsingle_arraylistoftext_1d[1] + "|" + network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str + "|")
+                    serial.writeLine("* B1:" + scoreboard_botsingle_arraylistoftext_1d[0] + "|" + scoreboard_botsingle_arraylistoftext_1d[1] + "||" + network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str + "||" + scoreboard_botsingle_arraylistoftext_1d + "||" + scoreboard_BotsAll_ArrayListOfText_2D)
                 }
                 quest_Note_4.quest_Show_String_For_Note_Small_Func(
                 "Hardcode 'Index = 1' to access actual 'BotId'"
                 )
-                if (scoreboard_botsingle_arraylistoftext_1d[1] == network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str) {
+                quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                "\\/ Compare w Key(SerialId) vs Value(GrouopCh#) for True BotId"
+                )
+                if (scoreboard_botsingle_arraylistoftext_1d[1] == network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str) {
+                    quest_Note_1.quest_Show_String_For_Note_Big_Func(
+                    "/\\ If Existing, Then Print Old Row"
+                    )
                     scoreboard_Bot_Found_Bool = true
                     if (_debug_Show_Priority_Hi_Bool) {
                         serial.writeString("* C1>")
@@ -542,7 +559,7 @@ radio.onReceivedString(function (receivedString) {
                     }
                     if (true) {
                         quest_Note_1.quest_Show_String_For_Note_Small_Func(
-                        "L,R"
+                        "Then Set New Values: L,R"
                         )
                         scoreboard_botsingle_arraylistoftext_1d[3] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].length)
                         scoreboard_botsingle_arraylistoftext_1d[4] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].length)
@@ -551,6 +568,9 @@ radio.onReceivedString(function (receivedString) {
             }
         }
         if (!(scoreboard_Bot_Found_Bool)) {
+            quest_Note_1.quest_Show_String_For_Note_Big_Func(
+            "/\\ If Not Existing, Then Create New Row"
+            )
             if (true) {
                 scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D = []
                 if (true) {
@@ -580,6 +600,9 @@ radio.onReceivedString(function (receivedString) {
                         )
                         scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[4] = keyvaluepair_value
                     } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText[0]) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "/\\ 'network_DataPacket_Rcvd_FieldNames_Login...'"
+                        )
                         scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[1] = keyvaluepair_value
                     } else {
                         if (false) {
@@ -619,17 +642,17 @@ radio.onReceivedString(function (receivedString) {
     }
 })
 input.onButtonPressed(Button.B, function () {
-    quest_Note_3.quest_Show_String_For_Note_Big_Func(
-    "Switch Scoreboard Modes"
-    )
-    if (scoreboard_Server_SerialPrint_RawScores_Bool) {
-        scoreboard_Server_SerialPrint_RawScores_Bool = false
-        scoreboard_Server_SerialPrint_FormattedScores_Bool = true
+    if (_debug_Show_Priority_Hi_Bool) {
+        _debug_Show_Priority_Hi_Bool = false
+        basic.clearScreen()
+        led.plot(2, 4)
+        basic.pause(2000)
     } else {
-        scoreboard_Server_SerialPrint_RawScores_Bool = true
-        scoreboard_Server_SerialPrint_FormattedScores_Bool = false
+        _debug_Show_Priority_Hi_Bool = true
+        basic.clearScreen()
+        led.plot(2, 0)
+        basic.pause(2000)
     }
-    screen_ModeStatus_Fn()
 })
 function screen_ScrollText_Fn (text_Str_In: string) {
     // Fragment the substrings to be interruptible between each 'show string' block
@@ -701,6 +724,7 @@ let network_DataPacket_Rcvd_MessageHeader_Value_AsBotId_Str = ""
 let network_DataPacket_Rcvd_MessageHeader_Key_AsBotId_Str = ""
 let network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList: string[] = []
 let network_DataPacket_Rcvd_Str = ""
+let scoreboard_BotsAll_ArrayListOfText_2D: string[][] = []
 let scoreboard_BotSingle_ArrayOfText_List_1D2: number[] = []
 let scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D: string[] = []
 let scoreboard_ColumnBackend_FieldNames_ArrayListOfText: string[] = []
@@ -721,7 +745,6 @@ let _bool_TRUE_1_ForDigitalPinReadWriteOnly_INT = 0
 let _bool_FALSE_0_ForDigitalPinReadWriteOnly_INT = 0
 let _system_BotAndController_Mode_As_COMMAND_AS_MAIN_MODE_INT = 0
 let _system_BotAndController_Mode_As_SETUP_INT = 0
-let scoreboard_BotsAll_ArrayListOfText_2D: string[][] = []
 let network_HiMessage_Frequency_SEC_INT = 0
 let network_GroupChannel_MyBotAndController_Digit_Ones_Int = 0
 let network_GroupChannel_MyBotAndController_Digit_Tens_Int = 0
@@ -767,7 +790,7 @@ if (true) {
     quest_Note_4.quest_Show_String_For_Note_Small_Func(
     "'Debug On' for Testing"
     )
-    _debug_Show_Priority_Hi_Bool = false
+    _debug_Show_Priority_Hi_Bool = true
 }
 loops.everyInterval(2000, function () {
     quest_Note_3.quest_Show_String_For_Note_Big_Func(
@@ -783,7 +806,7 @@ loops.everyInterval(2000, function () {
 })
 loops.everyInterval(2000, function () {
     if (!(scoreboard_BotsAll_ArrayList_2D_StopFreeze_Bool) && scoreboard_Server_SerialPrint_FormattedScores_Bool) {
-        if (true) {
+        if (false) {
             serial.writeLine("----- RoboQuest Scoreboard Server -----")
         }
         serial.writeLine("----- RoboQuest X-Ray Dashboard -----")
@@ -800,13 +823,6 @@ loops.everyInterval(2000, function () {
         serial.writeLine("")
     } else if (scoreboard_BotsAll_ArrayList_2D_StopFreeze_Bool) {
         serial.writeLine("*** Freeze Scores ***")
-    }
-})
-basic.forever(function () {
-    screenBrightness_Heartbeat_Count_Int += screenBrightness_Heartbeat_Count_DELTA_INT
-    // * Use '<= and >=' vs '< and >' since do not want to go past boundaries when changing values
-    if (screenBrightness_Heartbeat_Count_Int <= screenBrightness_HeartBeat_Count_MIN_INT || screenBrightness_Heartbeat_Count_Int >= screenBrightness_Heartbeat_Count_MAX_INT) {
-        screenBrightness_Heartbeat_Count_DELTA_INT = -1 * screenBrightness_Heartbeat_Count_DELTA_INT
     }
 })
 basic.forever(function () {
@@ -965,6 +981,13 @@ basic.forever(function () {
                 serial.writeString("* Key?: ")
             }
         }
+    }
+})
+basic.forever(function () {
+    screenBrightness_Heartbeat_Count_Int += screenBrightness_Heartbeat_Count_DELTA_INT
+    // * Use '<= and >=' vs '< and >' since do not want to go past boundaries when changing values
+    if (screenBrightness_Heartbeat_Count_Int <= screenBrightness_HeartBeat_Count_MIN_INT || screenBrightness_Heartbeat_Count_Int >= screenBrightness_Heartbeat_Count_MAX_INT) {
+        screenBrightness_Heartbeat_Count_DELTA_INT = -1 * screenBrightness_Heartbeat_Count_DELTA_INT
     }
 })
 loops.everyInterval(5000, function () {
