@@ -990,6 +990,11 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
+    quest_Note_1.quest_Show_String_For_Note_Small_Func(
+    "v0.2.0"
+    )
+})
+basic.forever(function () {
     screenBrightness_Heartbeat_Count_Int += screenBrightness_Heartbeat_Count_DELTA_INT
     // * Use '<= and >=' vs '< and >' since do not want to go past boundaries when changing values
     if (screenBrightness_Heartbeat_Count_Int <= screenBrightness_HeartBeat_Count_MIN_INT || screenBrightness_Heartbeat_Count_Int >= screenBrightness_Heartbeat_Count_MAX_INT) {
