@@ -1,0 +1,273 @@
+
+
+BAD: 'scoreboard_botsingle_arraylistoftext_1d' -> 'scoreboard_botsingle_arraylistoftext_1d2'
+
+        <<<<<<< local changes
+        basic.forever(function () {
+            if (false) {
+                let scoreboard_botsingle_arraylistoftext_1d2: string[] = []
+                if (false) {
+                    if (false) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "L+"
+                        )
+                        scoreboard_botsingle_arraylistoftext_1d2[3] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].length)
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "L="
+                        )
+                        scoreboard_botsingle_arraylistoftext_1d2[5] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d2[3]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d2[5]))
+                    }
+                    if (false) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "M+"
+                        )
+                        scoreboard_botsingle_arraylistoftext_1d2[7] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].length)
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "M="
+                        )
+                        scoreboard_botsingle_arraylistoftext_1d2[9] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d2[7]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d2[9]))
+                    }
+                }
+                if (_debug_Show_Priority_Hi_Bool) {
+                    serial.writeString("* C2>")
+                    for (let scoreboard_botsingle_columndata_1d2 of scoreboard_botsingle_arraylistoftext_1d2) {
+                        serial.writeString("" + scoreboard_botsingle_columndata_1d2 + "|")
+                    }
+                    serial.writeLine("* C2<")
+                }
+            }
+        })
+        basic.forever(function () {
+            if (false) {
+                if (true) {
+                    // // jwc 25-0210-1400 o network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["#", "L", "M"]
+                    // // jwc y network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
+                    network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
+                    network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText = ["Z", "L", "R"]
+                    if (false) {
+                        scoreboard_ColumnFrontend_TitleNames_ArrayListOfText = [
+                        "Bot#",
+                        "Light+",
+                        "Light=",
+                        "Magnet+",
+                        "Magnet="
+                        ]
+                        scoreboard_ColumnFrontend_TitleNames_ArrayListOfText = [
+                        "Bot#",
+                        "Servo_Motor: L",
+                        "Servo_Motor: R",
+                        "Light Sensor:",
+                        "AI-Cam Sensor:"
+                        ]
+                    }
+                    scoreboard_ColumnFrontend_TitleNames_ArrayListOfText = [
+                    "Bot#",
+                    "\"Wheel_L\"",
+                    "\"Wheel_R\"",
+                    "Light Sensor:",
+                    "AI-Cam Sensor:",
+                    ""
+                    ]
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText = [
+                    "B#",
+                    "L+",
+                    "L=",
+                    "M+",
+                    "M="
+                    ]
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D = [
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[0],
+                    "0",
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[1],
+                    "0",
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[2],
+                    "0",
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[3],
+                    "0",
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[4],
+                    "0"
+                    ]
+                    scoreboard_BotSingle_ArrayOfText_List_1D2 = []
+                    scoreboard_BotsAll_ArrayListOfText_2D = []
+                }
+            }
+        })
+        basic.forever(function () {
+            if (false) {
+                if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[0]) {
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[1] = keyvaluepair_value
+                } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[1]) {
+                    quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                    "ML"
+                    )
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[3] = keyvaluepair_value
+                    if (false) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "L="
+                        )
+                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[5] = keyvaluepair_value
+                    }
+                } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[2]) {
+                    quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                    "MR"
+                    )
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[4] = keyvaluepair_value
+                    if (false) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "M+"
+                        )
+                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[7] = keyvaluepair_value
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "M="
+                        )
+                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[9] = keyvaluepair_value
+                    }
+                } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText[0]) {
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[1] = keyvaluepair_value
+                } else {
+                    if (false) {
+                        serial.writeLine("*** ERROR: 2023-0517-1450: 'keyvaluepair_key' Not Recognized ***")
+                    } else {
+                        quest_Note_4.quest_Show_String_For_Note_Small_Func(
+                        "Tolerated Error for Digital-Xay: Fix Later"
+                        )
+                        serial.writeString("* Key?: ")
+                    }
+                }
+            }
+        })
+        ========================================
+        basic.forever(function () {
+            if (false) {
+                let scoreboard_botsingle_arraylistoftext_1d: string[] = []
+                if (false) {
+                    if (false) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "L+"
+                        )
+                        scoreboard_botsingle_arraylistoftext_1d[3] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[1].length)
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "L="
+                        )
+                        scoreboard_botsingle_arraylistoftext_1d[5] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d[3]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d[5]))
+                    }
+                    if (false) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "M+"
+                        )
+                        scoreboard_botsingle_arraylistoftext_1d[7] = network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].substr(network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].indexOf(":") + 1, network_DataPacket_Rcvd_ParsedIntoKeyValuePairs_ArrayList[2].length)
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "M="
+                        )
+                        scoreboard_botsingle_arraylistoftext_1d[9] = convertToText(parseFloat(scoreboard_botsingle_arraylistoftext_1d[7]) + parseFloat(scoreboard_botsingle_arraylistoftext_1d[9]))
+                    }
+                }
+                if (_debug_Show_Priority_Hi_Bool) {
+                    serial.writeString("* C2>")
+                    for (let scoreboard_botsingle_columndata_1d2 of scoreboard_botsingle_arraylistoftext_1d) {
+                        serial.writeString("" + scoreboard_botsingle_columndata_1d2 + "|")
+                    }
+                    serial.writeLine("* C2<")
+                }
+            }
+        })
+        basic.forever(function () {
+            if (false) {
+                if (true) {
+                    // // jwc 25-0210-1400 o network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["#", "L", "M"]
+                    // // jwc y network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
+                    network_DataPacket_Rcvd_FieldNames_ArrayListOfText = ["A", "L", "R"]
+                    network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText = ["Z", "L", "R"]
+                    if (false) {
+                        scoreboard_ColumnFrontend_TitleNames_ArrayListOfText = [
+                        "Bot#",
+                        "Light+",
+                        "Light=",
+                        "Magnet+",
+                        "Magnet="
+                        ]
+                        scoreboard_ColumnFrontend_TitleNames_ArrayListOfText = [
+                        "Bot#",
+                        "Servo_Motor: L",
+                        "Servo_Motor: R",
+                        "Light Sensor:",
+                        "AI-Cam Sensor:"
+                        ]
+                    }
+                    scoreboard_ColumnFrontend_TitleNames_ArrayListOfText = [
+                    "Bot#",
+                    "\"Wheel_L\"",
+                    "\"Wheel_R\"",
+                    "Light Sensor:",
+                    "AI-Cam Sensor:",
+                    ""
+                    ]
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText = [
+                    "B#",
+                    "L+",
+                    "L=",
+                    "M+",
+                    "M="
+                    ]
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D = [
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[0],
+                    "0",
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[1],
+                    "0",
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[2],
+                    "0",
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[3],
+                    "0",
+                    scoreboard_ColumnBackend_FieldNames_ArrayListOfText[4],
+                    "0"
+                    ]
+                    scoreboard_BotSingle_ArrayOfText_List_1D2 = []
+                    scoreboard_BotsAll_ArrayListOfText_2D = []
+                }
+            }
+        })
+        basic.forever(function () {
+            if (false) {
+                if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[0]) {
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[1] = keyvaluepair_value
+                } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[1]) {
+                    quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                    "ML"
+                    )
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[3] = keyvaluepair_value
+                    if (false) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "L="
+                        )
+                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[5] = keyvaluepair_value
+                    }
+                } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_ArrayListOfText[2]) {
+                    quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                    "MR"
+                    )
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[4] = keyvaluepair_value
+                    if (false) {
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "M+"
+                        )
+                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[7] = keyvaluepair_value
+                        quest_Note_1.quest_Show_String_For_Note_Small_Func(
+                        "M="
+                        )
+                        scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[9] = keyvaluepair_value
+                    }
+                } else if (keyvaluepair_key == network_DataPacket_Rcvd_FieldNames_Login_ArrayListOfText[0]) {
+                    scoreboard_BotSingle_KeyValuePairs_ArrayListOfText_1D[1] = keyvaluepair_value
+                } else {
+                    if (false) {
+                        serial.writeLine("*** ERROR: 2023-0517-1450: 'keyvaluepair_key' Not Recognized ***")
+                    } else {
+                        quest_Note_4.quest_Show_String_For_Note_Small_Func(
+                        "Tolerated Error for Digital-Xay: Fix Later"
+                        )
+                        serial.writeString("* Key?: ")
+                    }
+                }
+            }
+        })
+        >>>>>>> remote changes (pulled from Github)
